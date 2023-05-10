@@ -2,170 +2,171 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Mykola Adamenko</title>
-    <style>
-        body {
-            font-family: arial; /*sans-serif;*/
-            text-align: center;
-            background-image: url("book-face.jpg");
-        }
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        .header {
-            margin: 0 auto 0 auto;
-            padding: 0;
-            white-space: nowrap;
-            background-color: white;
-            border-round: 10px 10px;
-            width: fit-content;
-            opacity: 0.5;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
-        .content_box {
-            margin: -15px auto 0 auto;
-            padding: 0;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            max-width: 1300px;
-            width: 100%;
-        }
+  <title>Я - Микола, я - боєць!</title>
 
-        .content_titles {
-            margin: 0 auto 0 auto;
-            border-style: solid;
-            border-width: 5px;
-            border-color: #777799;
-            border-radius: 50%;
-            padding-left: 20px;
-            padding-right: 20px;
-            background-image: url("halfsphere.jpg");
-        }
+  <style>
+    body {
+      font-family: arial;
+      text-align: center;
+      background-color: #777777;
+    }
 
-        .content_minds {
-            border-style: solid;
-            border-width: 5px;
-            border-color: #770000;
-            border-radius: 50%;
-            padding-left: 20px;
-            padding-right: 20px;
-            visibility: hidden;
-            background-image: url("halfsphere.jpg");
-            background-size: 125%;
-        }
+    .content-box {
+      margin: 50px auto 50px auto;
+      padding: 0;
+      display: flex;
+      flex-direction:row;
+      flex-wrap: wrap;
+      background-color: ivory;
+      /* border: 3px solid #777; */
+      box-shadow: 5px 5px 5px 5px;
+      width: 1200px;
+    }
 
-        .content_titles .tagcloud {
-            display: inline-block;
-            margin: 20px;
-        }
+    .top-left {
+      margin: 0;
+      padding: 50px auto 50px auto;
+      width: 49%;
+      font-family: Pacifico;
+    }
 
-        .content_minds .tagcloud {
-            display: inline-block;
-            margin: 20px;
-        }
-    </style>
-    <!-- custom style -->
-    <style>
-        .tagcloud {
-            font-size: 12px;
-        }
+    .top-left p {
+      margin: 10px 0 0 170px;
+      text-align: left;
+    }
 
-        .content_titles .tagcloud--item {
-            padding: 2px 4px;
-            background-color: transparent;
-            border: 1px solid transparent;
-            cursor: pointer;
-            color: #B6233C;
-            font-weight: bold;
-        }
+    .top-right {
+      margin: 25px 25px 25px 0;
+      padding: 25px auto 25px auto;
+      width: 48%;
+      background-color: lightslategray;
+      border: 3px solid lightblue;
+    }
 
-        .content_minds .tagcloud--item {
-            padding: 2px 4px;
-            background-color: transparent;
-            border: 1px solid transparent;
-            cursor: pointer;
-            color: blue;
-        }
+    .top-right-content {
+      transform: rotate(9deg);
+      margin: 0 auto 0 auto;
+    }
 
-        .tagcloud--item:hover {
-            background-color: rgba(0, 0, 0, .1);
-            border: 1px solid #333;
-            -webkit-border-radius: 2px;
-            -moz-border-radius: 2px;
-            border-radius: 10px;
-            opacity: 1 !important;
-            z-index: 100 !important;
-        }
-    </style>
+    .top-right-content-telegram {
+      position: absolute;
+      top: 335px;
+      left: 230px;
+      background-color: #AAAAFF77;
+      font-size: large;
+    }
 
-    <script type="text/javascript" src="/tag-cloud.min.js"></script>
+    .top-right-content-mailto {
+      position: absolute;
+      top: 360px;
+      left: 230px;
+      background-color: #AAAAFF77;
+      font-size: large;
+    }
 
-    <script>
-        var gTitles = [
-            'Корова 5000 літрів молока в місяць',
-            'Місто на долоні'
-        ];
-    </script>
+    .bottom-gallery {
+      margin: 0 auto 50px auto;
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      width: 100%;
+      vertical-align: middle;
+      /* border: 3px solid greenyellow; */
+    }
 
-    <script>
-        var gTc_titles;
-        var gMindNo;
-        var gRadius = 0;
+    div.gallery {
+      margin: 5px;
+      border: 1px solid #ccc;
+      float: left;
+      width: 180px;
+    }
 
-        function recreateTitles() {
-            if (gTc_titles)
-                gTc_titles.destroy();
-            gTc_titles = TagCloud('.content_titles', gTitles, {'radius' : gRadius});
-        }
-        function destroyMinds() {
-            if (gTc_minds) {
-                gTc_minds.destroy();
-                gTc_minds = null;
-            }
-        }
-        function changeRadius(radius) {
-            if (gRadius == radius) return;
-            gRadius = radius;
-            if (gTc_titles) recreateTitles();
-            if (gTc_minds)  recreateMinds();
-        }
-        function addClickEventMinds() {
-            var rootEl = document.querySelector('.content_minds');
-            rootEl.addEventListener('click', clickEventMinds);
-        }
-        function clickEventTitles(e) {
-            if (e.target.className === 'tagcloud--item') {
-                adoptToWidth();
-                var i;
-                for (i = 0; i < gTitles.length && gTitles[i].localeCompare(e.target.innerText) != 0; ++i); //>
-                gMindNo = i;
-                recreateMinds();
-                var st=document.getElementsByClassName('content_minds')[0].style
-                st.visibility = "visible";
-                st.marginLeft = "auto";
-                st.marginRight = "auto";
-                toResume();
-            }
-        }
-        function addClickEventTitles() {
-            var rootEl = document.querySelector('.content_titles');
-            rootEl.addEventListener('click', clickEventTitles);
-        }
-        function onLoad() {
-            recreateTitles();
-            addClickEventTitles();
-        }
-    </script>
+    div.gallery:hover {
+      border: 1px solid #777;
+      background-color: #AAAAFF;
+      box-shadow: 5px 5px 5px 5px #AAAAFF;
+    }
+
+    div.gallery img {
+      width: 100%;
+      height: auto;
+    }
+
+    div.desc {
+      padding: 15px;
+      text-align: center;
+    }
+
+  </style>
 </head>
 
-<body onload='onLoad()'>
-    <div class="content_box">
-        <div class="content_titles">
-            <!-- content_titles -->
+<body>
+    <div class="content-box">
+
+      <div class="top-left">
+        <h1>Все, що вам треба знати про мене</h1>
+        <p>
+          Я - <i>Микола</i>, я - боєць,<br>
+          <b>І в роботі молодець</b>!<br>
+          Люблять <sup>всі</sup> <sub>мене</sub> дівчата,<br>
+          <u>Липнуть <sup>всі</sup>, немов <sub>я</sub> м’ята!</u>
+        </p>
+        <p>
+          <em>Хоч я не гордий, та не здаюсь, -</em><br>
+          <big>На любов не піддаюсь!</big><br>
+          <strong>Але завжди мені везе</strong>,<br>
+          <strike>І в житті є в мене все</strike>!
+        </p>
+      </div>
+
+      <div class="top-right">
+        <div class="top-right-content">
+          <img src="hero.jpg" width="300" height="400">
+          <a class="top-right-content-telegram" href="https://t.me/NickAdams3">Telegram me</a><br>
+          <a class="top-right-content-mailto" href="mailto:nikolab4446@gmail.com?subject = From My Site Feedback&body = Let's dating">Email me</a>
         </div>
-    </div>
+      </div>
+
+      <div class="bottom-gallery">
+        <div class="gallery">
+          <a target="_blank" href="galimg1.jpg">
+            <img src="galimg1.jpg" alt="Excelent image 1" width="600" height="400">
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="galimg2.jpg">
+            <img src="galimg2.jpg" alt="Excelent image 2" width="600" height="400">
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="galimg3.jpg">
+            <img src="galimg3.jpg" alt="Excelent image 3" width="600" height="400">
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="galimg4.jpg">
+            <img src="galimg4.jpg" alt="Excelent image 4" width="600" height="400">
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+
+      </div>
+
+    </div> <!-- content-box -->
 </body>
 
 </html>
