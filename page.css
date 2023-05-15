@@ -10,8 +10,8 @@
     display: flex;
     flex-direction:row;
     flex-wrap: wrap;
-    background-color: ivory;
-    /* border: 3px solid #777; */
+    background-image: url(background.jpg);
+    background-size: cover;
     box-shadow: 5px 5px 5px 5px;
     width: 1200px;
   }
@@ -25,7 +25,6 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: left;
-    /* justify-content: space-between; */
     margin: 20px 0 10px -25px;
     width: fit-content;
   }
@@ -64,7 +63,7 @@
   }
 
   .top-left p {
-    margin: 10px 0 0 170px;
+    margin: 10px 0 0 20px;
     text-align: left;
   }
 
@@ -72,13 +71,11 @@
     margin: 25px 25px 25px 0;
     padding: 25px auto 25px auto;
     width: 48%;
-    background-color: lightslategray;
-    border: 3px solid lightblue;
   }
 
   .top-right-content {
     transform: rotate(9deg);
-    margin: 0 auto 0 auto;
+    margin: -50px auto 50px auto;
   }
 
   .top-right-content-stamp {
@@ -87,24 +84,26 @@
     left: 285px;
   }
 
-  .top-right-content-telegram {
+  .top-right-content-contacts {
     position: absolute;
     top: 335px;
-    left: 200px;
-    background-color: #AAAAFF77;
+    left: 170px;
+    /* background-color: #AAAAFF77; */
     font-size: large;
+    /* width: 300px; */
   }
 
-  .top-right-content-mailto {
-    position: absolute;
-    top: 360px;
-    left: 200px;
-    background-color: #AAAAFF77;
-    font-size: large;
+  .top-right-content-page {
+    margin: 0 auto 0 auto;
+  }
+
+  .top-right-content-page img {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
   }
 
   .bottom-content {
-    margin: 0 auto 50px auto;
+    margin: 20px auto 20px auto;
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -121,14 +120,16 @@
   .gallery {
     margin: 10px;
     border: 1px solid #ccc;
+    border-radius: 15px;
     float: left;
     width: 180px;
   }
 
   .gallery:hover {
     border: 1px solid #777;
-    background-color: #AAAAFF;
-    box-shadow: 5px 5px 5px 5px #AAAAFF;
+    border-radius: 15px;
+    background-color: #cfd5f3;
+    box-shadow: 5px 5px 5px 5px #c0d0d0;
     border: 0;
   }
 
@@ -139,5 +140,7 @@
 
   .gallery-desc {
     padding: 15px;
+    font-family: Pacifico;
     text-align: center;
+    text-shadow: 2px 2px #FFFF77;
   }
