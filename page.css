@@ -88,7 +88,7 @@
     /* position: absolute; */
     /* top: 480px; */
     /* left: 1050px; */
-    /* background-color: #AAAAFF77;
+    /* background-color: #AAAAFF77; */
     font-size: large;
     /* width: 300px; */
   }
@@ -143,4 +143,19 @@
     font-family: Pacifico;
     text-align: center;
     text-shadow: 2px 2px #FFFF77;
+  }
+
+  .gallery-image-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+  }
+
+  .gallery-image-content-img {
+    margin: 10px auto auto auto;
+    box-shadow: 5px 5px 5px 5px;
   }

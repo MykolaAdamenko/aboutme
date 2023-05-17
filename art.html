@@ -14,6 +14,11 @@
 
   <link rel="stylesheet" href="page.css">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+  <style>
+
+  </style>
 </head>
 
 <body>
@@ -31,35 +36,35 @@
         <div class="gallery-content">
 
           <div class="gallery">
-            <a target="_blank" href="galimg01.jpg">
+            <a onclick="GalleryIFrame('galimg01.jpg')">
               <img src="galimg01.jpg" alt="Excelent image 1" width="600" height="400">
             </a>
             <div class="gallery-desc">Рідний край</div>
           </div>
 
           <div class="gallery">
-            <a target="_blank" href="galimg02.jpg">
+            <a onclick="GalleryIFrame('galimg02.jpg')">
               <img src="galimg02.jpg" alt="Excelent image 2" width="600" height="400">
             </a>
             <div class="gallery-desc">Фонтан</div>
           </div>
 
           <div class="gallery">
-            <a target="_blank" href="galimg05.jpg">
+            <a onclick="GalleryIFrame('galimg05.jpg')">
               <img src="galimg05.jpg" alt="Excelent image 4" width="600" height="400">
             </a>
             <div class="gallery-desc">Захід Сонця</div>
           </div>
 
           <div class="gallery">
-            <a target="_blank" href="galimg03.jpg">
+            <a onclick="GalleryIFrame('galimg03.jpg')">
               <img src="galimg03.jpg" alt="Excelent image 3" width="600" height="400">
             </a>
             <div class="gallery-desc">Praga</div>
           </div>
 
           <div class="gallery">
-            <a target="_blank" href="galimg04.jpg">
+            <a onclick="GalleryIFrame('galimg04.jpg')">
               <img src="galimg04.jpg" alt="Excelent image 4" width="600" height="400">
             </a>
             <div class="gallery-desc">Руки</div>
@@ -68,6 +73,20 @@
         </div>
 
     </div> <!-- content-box -->
-</body>
+
+    <div class="gallery-image-content" onclick="$('.gallery-image-content').hide()">
+      <img class="gallery-image-content-img" src="galimg05.jpg">
+    </div>
+
+    <script>
+      function GalleryIFrame(img) {
+        box = $('.gallery-image-content');
+        tagimg = $('.gallery-image-content-img')
+        tagimg.attr('src', img);
+        box.show();
+      }
+    </script>
+
+  </body>
 
 </html>
